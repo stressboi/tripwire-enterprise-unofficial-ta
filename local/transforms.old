@@ -1,0 +1,6 @@
+[source::/opt/teexports/SCM/*.csv]
+sourcetype=te_scm_csv
+
+[te_scm_csv_extractions]
+DELIMS=","
+FIELDS="node_name","node_type","policy","parent_test_group","test_name","description","element","result_time","result_state","actual_value"

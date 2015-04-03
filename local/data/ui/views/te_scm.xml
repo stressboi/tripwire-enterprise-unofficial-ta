@@ -1,0 +1,91 @@
+<form script="table_row_highlighting.js" stylesheet="table_decorations.css">
+  <label>Tripwire Enterprise Passed &amp; Failed Tests</label>
+  <description/>
+  <fieldset submitButton="false">
+    <input type="time" token="field3">
+      <label/>
+      <default>
+        <earliestTime>0</earliestTime>
+        <latestTime/>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <chart>
+        <title>Passed v Failed Tests (all)</title>
+        <searchString>index=te sourcetype=te_scm_csv| top limit=20 "Result State"</searchString>
+        <earliestTime/>
+        <latestTime/>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">pie</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <input type="multiselect" token="Policy" searchWhenChanged="true">
+        <populatingSearch fieldForLabel="Policy" fieldForValue="Policy">index=te sourcetype=te_scm_csv | stats count by Policy | sort -count</populatingSearch>
+        <choice value="*">ALL</choice>
+        <default>*</default>
+        <delimiter> OR </delimiter>
+        <valuePrefix>Policy="</valuePrefix>
+        <valueSuffix>"</valueSuffix>
+      </input>
+      <input type="checkbox" token="resultstate" searchWhenChanged="true">
+        <label>Result State</label>
+        <choice value="ResultState=passed">passed</choice>
+        <choice value="ResultState=failed">failed</choice>
+        <prefix>(</prefix>
+        <suffix>)</suffix>
+        <delimiter> OR </delimiter>
+        <default>ResultState=passed,ResultState=failed</default>
+      </input>
+      <table id="highlight">
+        <title>Test Details</title>
+        <searchString>index=te sourcetype=te_scm_csv $Policy$ $resultstate$|eval numericstate=if(ResultState="passed",1,0) | stats count by "Policy","Result Time","Node Name","Parent Test Group","Test Name","Result State",numericstate | sort -count</searchString>
+        <earliestTime>0</earliestTime>
+        <latestTime/>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">heatmap</option>
+        <option name="count">10</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">0</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.enabled">false</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">scatter</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="drilldown">cell</option>
+      </table>
+    </panel>
+  </row>
+</form>

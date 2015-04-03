@@ -1,0 +1,50 @@
+<form>
+  <label>Tripwire Enterprise Attributes Seach</label>
+  <fieldset submitButton="true">
+    <input type="time" token="field1">
+      <label/>
+      <default>
+        <earliestTime>0</earliestTime>
+        <latestTime/>
+      </default>
+    </input>
+    <input type="dropdown" token="rulename" searchWhenChanged="true">
+      <label>Rule</label>
+      <populatingSearch earliest="0" latest="" fieldForLabel="RuleName" fieldForValue="RuleName">index=te | stats count by RuleName | sort -count</populatingSearch>
+      <choice value="*">ALL</choice>
+      <default>*</default>
+    </input>
+    <input type="text" token="hash" searchWhenChanged="true">
+      <label>Hash Value</label>
+      <default>*</default>
+    </input>
+    <input type="text" token="filename">
+      <label>Filename</label>
+      <default>*</default>
+    </input>
+    <input type="text" token="hostname">
+      <label>Hostname</label>
+      <default>*</default>
+    </input>
+    <input type="text" token="user" searchWhenChanged="true">
+      <label>Users</label>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>Details</title>
+        <searchString>index=te (SHA-1 OR MD5) * NodeName=$hostname$ ElementName=$filename$ Users=$user$ RuleName=$rulename$| rex mode=sed field=Attributes "s/\;/,/g" | rex mode=sed field=Attributes "s/\"//g" | rex field=Attributes "Observed\=(?&lt;Observed_Hash&gt;[A-Fa-f0-9]{40})" | rex field=Attributes "Expected\=(?&lt;Expected_Hash&gt;[A-Fa-f0-9]{40})"|rename ElementName as "File Name"| table _time,"Node Name","Change Type","File Name","Users","Rule Name","Expected_Hash","Observed_Hash" | search (Expected_Hash=
+"$hash$" OR Observed_Hash="$hash$")</searchString>
+        <earliestTime>1279543980.000</earliestTime>
+        <latestTime/>
+        <option name="wrap">true</option>
+        <option name="rowNumbers">false</option>
+        <option name="dataOverlayMode">heatmap</option>
+        <option name="drilldown">cell</option>
+        <option name="count">10</option>
+      </table>
+    </panel>
+  </row>
+</form>

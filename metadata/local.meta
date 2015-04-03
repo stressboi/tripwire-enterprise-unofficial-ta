@@ -1,0 +1,194 @@
+[app/ui]
+version = 6.1.1
+modtime = 1400774394.884372000
+
+[app/launcher]
+version = 6.1.1
+modtime = 1400774394.886020000
+
+[views/tripwire_enterprise]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402693552.855583000
+
+[workflow_actions/Launch%20TE%20in%20Context%20on%20ElementID]
+access = read : [ * ], write : [ * ]
+export = system
+owner = admin
+version = 6.1.1
+modtime = 1414518844.501582000
+
+[lookups/DTR_Fields.csv]
+access = read : [ * ], write : [ * ]
+export = system
+owner = admin
+version = 6.1.1
+modtime = 1402522538.904905000
+
+[inputs/monitor%3A%2F%2F%2Fopt%2Fteexports%2FSCM%2F%2A.csv]
+version = 6.1.1
+modtime = 1402543661.979138000
+
+[workflow_actions/Node%20Search%20in%20TE%20by%20IP]
+access = read : [ * ], write : [ * ]
+export = system
+owner = admin
+version = 6.2.0
+modtime = 1426078343.708196000
+
+[views/tripwire_security_configuration_management]
+owner = admin
+version = 6.1.1
+modtime = 1402692486.596947000
+
+[views/all_time_changes]
+version = 6.1.1
+modtime = 1410206085.409534000
+
+[props/te_scm_csv/FIELDALIAS-ResultState]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402684582.052310000
+
+[views/host_changes_overview]
+version = 6.1.1
+modtime = 1402954335.219230000
+
+[savedsearches/Added_Modified_Removed]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402704488.724659000
+
+[savedsearches/Hashes%20%28Expect%20%26%20Observed%29]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402704512.114558000
+
+[savedsearches/Nodes%20with%20Failures]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402704522.530030000
+
+[savedsearches/Tripwire%20Enterprise%20Parent%20Test%20Groups]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402704529.078098000
+
+[views/te_administrative_operations]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402799486.201967000
+
+[views/te_audit_events]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1411681984.664921000
+
+[views/te_scm]
+access = read : [ * ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1403297197.444433000
+
+[views/te_drilldown_example]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1402956037.273032000
+
+[views/recreations_of_te_reports]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1404159714.021333000
+
+[views/hash_search_2]
+version = 6.1.1
+modtime = 1402955939.687534000
+
+[inputs/monitor%3A%2F%2F%2Fopt%2Fteexports%2FFIM%2F%2A.csv]
+version = 6.1.1
+modtime = 1404157023.890799000
+
+[inputs/tcp%3A%2F%2F1468]
+version = 6.1.2
+modtime = 1405446344.641270400
+
+[workflow_actions/Search%20for%20Test%20Results]
+export = system
+owner = admin
+version = 6.1.1
+modtime = 1414519028.574109000
+
+[workflow_actions/TestNameSearch]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1414519175.328502000
+
+[workflow_actions/LICNodeName]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1414521269.798388000
+
+[workflow_actions/LIC_Node_Name]
+export = none
+owner = admin
+version = 6.1.1
+modtime = 1414521278.247184000
+
+[inputs/monitor%3A%2F%2F%2Ftmp%2Fdcr-users.csv]
+owner = admin
+version = 6.2.1
+modtime = 1419979128.266434000
+
+[eventtypes/te_fim]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = nobody
+version = 6.2.0
+modtime = 1420000765.986139000
+
+[tags/eventtype%3Dte_fim]
+access = read : [ * ], write : [ admin, power ]
+export = system
+owner = nobody
+version = 6.2.0
+modtime = 1420000766.056696000
+
+[props/te_fim_csv/FIELDALIAS-dest]
+access = read : [ * ], write : [ admin, ess_admin, power ]
+owner = nobody
+version = 6.2.0
+modtime = 1420002614.289965000
+
+[props/te_fim_csv/FIELDALIAS-data]
+access = read : [ * ], write : [ admin, ess_admin, power ]
+owner = nobody
+version = 6.2.0
+modtime = 1420002628.509435000
+
+[]
+access = read : [ * ], write : [ admin, power ]
+export = system
+version = 6.2.0
+modtime = 1420005866.102173000
